@@ -1,0 +1,45 @@
+.persons {
+	margin: 1em 0em 0em 0em;
+	list-style-type: none;
+	padding: 0;
+	li {
+		position: relative;
+        background-color: #eee;
+        margin: .3em;
+		padding: .3em;
+		border-radius: 4px;
+		display: block;
+	}
+	a {
+		color: #004eb4;
+        font-size: x-large;
+		text-decoration: none;
+		&:hover {
+			color: #ccc;
+		}
+	}
+	.badge {
+		display: inline-block;
+		font-size: small;
+		background-color: #000;
+		border-radius: 4px 0 0 4px;
+        vertical-align: text-top;
+	}
+}
+
+button.edit {
+    float: inline-end;
+    margin: -2em 0.3em 0 0em;
+    background-color: #ccc;
+	padding: 1px 10px 3px 10px;
+	&:hover {
+		background-color: #525252;
+		color: white;
+	}
+}
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+*/

@@ -1,0 +1,26 @@
+<h2>Person Detail</h2>
+<div *ngIf="person">
+    <div><span>id: </span>{{person.id}}</div>
+    <div>
+        <label for="person-firstname">firstName: </label>
+        <span id="person-firstname">{{person.firstName}}</span>
+    </div>
+    <div>
+        <label for="person-lastname">lastName: </label>
+        <span id="person-lastname">{{person.lastName}}</span>
+    </div>
+    <div>
+        <label for="person-email">email: </label>
+        <span id="person-email">{{person.email}}</span>
+    </div>
+    <div>
+        <label for="person-departmentid">departmentId: </label>
+        <span id="person-departmentid">{{person.departmentId}}</span>
+    </div>
+
+    <button type="button" (click)="goBack()">Go back</button>
+    <button type="button" (click)="edit()">Edit</button>
+</div>
+
+
+

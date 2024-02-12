@@ -1,0 +1,37 @@
+<h2>Person Edit</h2>
+<div *ngIf="person">
+    <div><span>id: </span>{{person.id}}</div>
+    <div>
+        <label for="person-firstname">firstName: </label>
+        <input id="person-firstname" [(ngModel)]="person.firstName" placeholder="firstName"/>
+    </div>
+    <div>
+        <label for="person-lastname">lastName: </label>
+        <input id="person-lastnam" [(ngModel)]="person.lastName" placeholder="lastName"/>
+    </div>
+    <div>
+        <label for="person-email">email: </label>
+        <input id="person-email" [(ngModel)]="person.email" placeholder="email"/>
+    </div>
+    <div>
+        <label for="person-departmentid">departmentId: </label>
+        <input id="person-departmentid" disabled="true" [(ngModel)]="person.departmentId" placeholder="departmentid"/>
+    </div>
+    <button type="button" (click)="goBack()">go back</button>
+    <button type="button" (click)="save()">save</button>
+</div>
+
+<!-- TODO: convert to form -->
+<!--div>
+    <fieldset>
+        <legend>Form Name</legend>
+        <div class="form-field">
+          <label for="f1">Field1</label>
+          <input type="text" id="f1">
+        </div>
+        <div class="form-field">
+          <label for="f2">Field2</label>
+          <input type="text" id="f2">
+        </div>
+      </fieldset>
+</div-->
