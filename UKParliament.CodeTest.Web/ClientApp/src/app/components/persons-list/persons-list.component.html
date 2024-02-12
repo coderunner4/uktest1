@@ -1,10 +1,11 @@
-<h2>Persons List</h2>
+<h2 tabindex="-1">Persons List</h2>
 
 <!-- TODO: SOLID voilation fix - Create sperate add person component & add as composition  -->
 <div>
-  <label for="new-person">Lastname: </label>
-  <input id="new-person" #personName />
-  <button 
+  <label for="new-person">Email: </label>
+  <input id="new-person" #personName tabindex="0"/>
+  <button
+    tabindex="0"
     type="button" 
     class="add-button" 
     (click)="addPerson(personName.value); 
@@ -15,17 +16,17 @@
 
 <ul class="persons">
   <li *ngFor="let person of persons">
-    <a routerLink="/person-detail/{{person.id}}">
+    <a role="link" routerLink="/person-detail/{{person.id}}">
       <span class="badge">{{person.id}}</span> {{person.lastName + ', ' + person.firstName}}
     </a>
     <br/>
-    <div>
+    <div tabindex="-1">
       <span>E: {{person.email}}</span>
       <span>&nbsp;|&nbsp;</span>
       <span>Dept Id: {{person.departmentId}}</span>
       <span>&nbsp;</span>  
     </div>
-    <button type="button" class="edit" title="edit person"
+    <button type="button" tabindex="0" class="edit" title="edit person"
       (click)="editPerson(person.id)">Edit</button>
   </li>
 </ul>
