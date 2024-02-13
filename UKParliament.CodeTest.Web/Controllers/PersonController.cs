@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 using UKParliament.CodeTest.Data;
 using UKParliament.CodeTest.Services;
 using UKParliament.CodeTest.Services.Services;
@@ -34,6 +35,8 @@ public class PersonController : ControllerBase
     [HttpGet("check-email")]
     public IActionResult CheckEmailExists(string email)
     {
+        // TODO: Check email format
+        // TODO: SOLID Voilation Fix - Use Model Validator instead of hard checks here
         var person = _personService.GetPersonByEmail(email);
         return Ok(new { Exists = person != null });
     }
@@ -47,9 +50,24 @@ public class PersonController : ControllerBase
     [HttpPut("{id:int}")]
     public IActionResult PutPerson(int id, PersonDTO personDTO)
     {
-        if (id != personDTO.Id)
+        // TODO: Check email format
+        // TODO: SOLID Voilation Fix - Use Model Validator instead of hard checks here
+        // Commenting server-side checks for now
+        /**
+        if (personDTO == null
+            || id != personDTO.Id        
+            || string.IsNullOrWhiteSpace(personDTO.FirstName)
+            || string.IsNullOrWhiteSpace(personDTO.LastName)
+            || string.IsNullOrWhiteSpace(personDTO.Email)
+            || personDTO.DepartmentId <= 0)
         {
-            return BadRequest();
+            return BadRequest("InValid Information Provided");
+        }
+        **/
+
+        if (id != personDTO.Id)        
+        {
+            return BadRequest("InValid Information Provided");
         }
 
         var personItem = _personService.GetPersonById(id);
@@ -77,6 +95,19 @@ public class PersonController : ControllerBase
     [HttpPost]
     public ActionResult<PersonDTO> PostPerson(PersonDTO personDTO)
     {
+        // TODO: Check email format
+        // TODO: SOLID Voilation Fix - Use Model Validator instead of hard checks here
+        // Commenting server-side checks for now
+        /*
+        if (personDTO == null
+            || string.IsNullOrWhiteSpace(personDTO.FirstName)
+            || string.IsNullOrWhiteSpace(personDTO.LastName)
+            || string.IsNullOrWhiteSpace(personDTO.Email)
+            || personDTO.DepartmentId <= 0)
+        {
+            return BadRequest("InValid Information Provided");
+        }*/
+
         var resId = _personService.AddPerson(personDTO);
         if(resId == null){
             return NotFound();
